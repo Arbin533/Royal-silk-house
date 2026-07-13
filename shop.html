@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | Royal Silk House</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+
+        <div class="logo">
+            <h2>Royal Silk House</h2>
+        </div>
+
+        <button class="menu-btn">
+            ☰
+        </button>
+
+    </header>
+    <div class="mobile-menu" id="mobile-menu">
+
+    <a href="index.html"> Home</a>
+
+    <a href="shop.html"> Shop</a>
+
+    <a href="index.html#contact"> Contact</a>
+
+    <a href="https://wa.me/918822016942">💬 WhatsApp</a>
+
+</div>
+<section class="shop-page">
+
+    <h2 class="section-title">
+        Our Collection
+    </h2>
+
+    <div class="search-box">
+        <input
+            type="text"
+            id="search-input"
+            placeholder="Search Mekhela Chador..."
+        >
+    </div>
+
+    <div class="category-container">
+
+
+        <div class="category-card" data-category="All">All</div>
+        
+        <div class="category-card" data-category="Silk">Silk</div>
+
+        <div class="category-card" data-category="Cotton">Cotton</div>
+
+        <div class="category-card" data-category="Bridal">Bridal</div>
+
+        <div class="category-card" data-category="Traditional">Traditional</div>
+
+        <div class="category-card" data-category="Designer">Designer</div>
+
+    </div>
+
+    <div class="products-grid" id="products-container">
+
+    </div>
+<!-- Product Popup -->
+
+<div class="popup" id="popup">
+
+    <div class="popup-content">
+
+        <span class="close-popup">&times;</span>
+
+        <img id="popup-image">
+
+        <h2 id="popup-name"></h2>
+
+        <p id="popup-original"></p>
+
+        <p id="popup-offer"></p>
+
+        <p id="popup-shipping"></p>
+
+        <a id="popup-whatsapp"
+        class="whatsapp-btn"
+        target="_blank">
+
+        Order on WhatsApp
+
+        </a>
+
+    </div>
+
+</div>
+</section>
+
+   <script src="script.js?v=2"></script>
+
+</body>
+</html>
