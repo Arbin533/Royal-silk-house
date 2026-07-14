@@ -1,5 +1,5 @@
 const products = [
-{
+{   id: "p1",
     name: "Kesa Pat Cotton Mekhela Chador",
     originalPrice: "₹499",
     offerPrice: "₹299",
@@ -9,6 +9,7 @@ const products = [
     image: "products/p1.jpeg"
 },
 {
+    id: "p2",
     name: "Kesa Pat Cotton Mekhela Chador",
     originalPrice: "₹499",
     offerPrice: "₹299",
@@ -18,6 +19,7 @@ const products = [
     image: "products/p2.jpeg"
 },
 {
+    id: "p3",
     name: "Kesa Pat Cotton Mekhela Chador",
     originalPrice: "₹499",
     offerPrice : "₹299",
@@ -27,6 +29,7 @@ const products = [
     image: "products/p3.jpeg"
 },
 {
+    id: "p4",
     name: "Kesa Pat Cotton Mekhela Chador",
     originalPrice: "₹499",
     offerPrice: "₹299",
@@ -36,6 +39,7 @@ const products = [
     image: "products/p4.jpeg"
 },
 {
+    id: "p5",
     name: "Kesa Pat Cotton Mekhela Chador",
     originalPrice: "₹499",
     offerPrice: "₹299",
@@ -45,6 +49,7 @@ const products = [
     image: "products/p5.jpeg"
 },
 {
+    id: "p6",
     name: "Kesa Pat Cotton Mekhela Chador",
     originalPrice: "₹499",
     offerPrice: "₹299",
@@ -54,6 +59,7 @@ const products = [
     image: "products/p6.jpeg"
 },
 {
+    id: "p7",
     name: "Kesa Pat Cotton Mekhela Chador",
     originalPrice: "₹499",
     offerPrice: "₹299",
@@ -63,6 +69,7 @@ const products = [
     image: "products/p7.jpeg"
 },
 {
+    id: "p8",
     name: "Kesa Pat Cotton Mekhela Chador",
     originalPrice: "₹499",
     offerPrice: "₹299",
@@ -72,6 +79,7 @@ const products = [
     image: "products/p8.jpeg"
 },
 {
+    id: "p9",
     name: "Kesa Pat Cotton Mekhela Chador",
     originalPrice: "₹499",
     offerPrice: "₹299",
@@ -81,6 +89,7 @@ const products = [
     image: "products/p9.jpeg"
 },
 {
+    id: "p10",
     name: "Kesa Pat Cotton Mekhela Chador",
     originalPrice: "₹499",
     offerPrice: "₹299",
@@ -90,6 +99,7 @@ const products = [
     image: "products/p10.jpeg"
 },
 {
+    id: "p11",
     name: "Kesa Pat Cotton Mekhela Chador",
     originalPrice: "₹499",
     offerPrice: "₹299",
@@ -99,6 +109,7 @@ const products = [
     image: "products/p11.jpeg"
 },
 {
+    id: "p12",
     name: "Kesa Pat Cotton Mekhela Chador",
     originalPrice: "₹499",
     offerPrice: "₹299",
@@ -108,6 +119,7 @@ const products = [
     image: "products/p12.jpeg"
 },
 {
+    id: "p13",
     name: "Kesa Pat Cotton Mekhela Chador",
     originalPrice: "₹499",
     offerPrice: "₹299",
@@ -117,6 +129,7 @@ const products = [
     image: "products/p13.jpeg"
 },
 {
+    id: "p14",
     name: "Kesa Pat Cotton Mekhela Chador",
     originalPrice: "₹499",
     offerPrice: "₹299",
@@ -126,6 +139,7 @@ const products = [
     image: "products/p14.jpeg"
 },
 {
+    id: "p15",
     name: "Kesa Pat Cotton Mekhela Chador",
     originalPrice: "₹499",
     offerPrice: "₹299",
@@ -174,7 +188,18 @@ function displayProducts(productsToShow) {
 
                 <p class="rating">${product.rating}</p>
 
-                <a href="https://wa.me/918822016942?text=Hello,%20I%20want%20to%20order%20${product.name}"
+                <a href="https://wa.me/918822016942?text=${encodeURIComponent(
+`Hello Royal Silk House,
+
+I want to order:
+
+${product.name}
+
+Product Link:
+https://royalsilkhouse.in/shop.html?product=${product.id}
+
+Please share payment details.`
+)}"
                 class="whatsapp-btn">
 
                 Order on WhatsApp
@@ -245,7 +270,7 @@ const specialProductsContainer = document.getElementById("special-products");
 
 if (specialProductsContainer) {
 
-    const specialProducts = products.slice(0, 4);
+    const specialProducts = products.slice(0, 8);
 
     specialProducts.forEach(product => {
 
@@ -275,7 +300,18 @@ if (specialProductsContainer) {
             <p class="shipping"> | Shipping Charge: ${product.shipping}</p>
             <p class="rating">${product.rating}</p>
 
-            <a href="https://wa.me/918822016942?text=Hello,%20I%20want%20to%20order%20${product.name}" class="whatsapp-btn">
+            <a href="https://wa.me/918822016942?text=${encodeURIComponent(
+            `Hello Royal Silk House,
+
+            I want to order:
+
+            ${product.name}
+
+            Product Link:
+            https://royalsilkhouse.in/shop.html?product=${product.id}
+
+            Please share payment details.`
+            )}" class="whatsapp-btn">
                 Order on WhatsApp
             </a>
 
@@ -336,7 +372,18 @@ popupOffer.innerText=offer;
 
 popupShipping.innerText=shipping;
 
-popupWhatsapp.href=`https://wa.me/918822016942?text=Hello I want to order ${name}`;
+popupWhatsapp.href=`https://wa.me/918822016942?text=${encodeURIComponent(
+`Hello Royal Silk House,
+
+I want to order:
+
+${name}
+
+Product Link:
+https://royalsilkhouse.in/shop.html?product=${product.id}
+
+Please share payment details.`
+)}`;
 
 }
 
