@@ -1,152 +1,152 @@
 const products = [
-{   id: "p1",
-    name: "Kesa Pat Cotton Mekhela Chador",
+{   id: "RSH001",
+    name: "Kesa Pat Cotton Mekhela Chador 01",
     originalPrice: "₹499",
     offerPrice: "₹299",
     shipping: "₹100",
      rating: "⭐⭐⭐⭐⭐ (4.9)",
     category: "Cotton",
-    image: "products/p1.jpeg"
+    image: "products/RSH001.jpeg"
 },
 {
-    id: "p2",
-    name: "Kesa Pat Cotton Mekhela Chador",
+    id: "RSH002",
+    name: "Kesa Pat Cotton Mekhela Chador 02",
     originalPrice: "₹499",
     offerPrice: "₹299",
     shipping: "₹100",
      rating: "⭐⭐⭐⭐⭐ (4.9)",
     category: "Cotton",
-    image: "products/p2.jpeg"
+    image: "products/RSH002.jpeg"
 },
 {
-    id: "p3",
-    name: "Kesa Pat Cotton Mekhela Chador",
+    id: "RSH003",
+    name: "Kesa Pat Cotton Mekhela Chador 03",
+    originalPrice: "₹499",
+    offerPrice: "₹299",
+    shipping: "₹100",
+     rating: "⭐⭐⭐⭐⭐ (4.8)",
+    category: "Cotton",
+    image: "products/RSH003.jpeg"
+},
+{
+    id: "RSH004",
+    name: "Kesa Pat Cotton Mekhela Chador 04",
     originalPrice: "₹499",
     offerPrice : "₹299",
     shipping: "₹100",
      rating: "⭐⭐⭐⭐⭐ (4.9)",
     category: "Cotton",
-    image: "products/p3.jpeg"
+    image: "products/RSH004.jpeg"
 },
 {
-    id: "p4",
-    name: "Kesa Pat Cotton Mekhela Chador",
+    id: "RSH005",
+    name: "Kesa Pat Cotton Mekhela Chador 05",
+    originalPrice: "₹499",
+    offerPrice: "₹299",
+    shipping: "₹100",
+     rating: "⭐⭐⭐⭐⭐ (4.0)",
+    category: "Cotton",
+    image: "products/RSH005.jpeg"
+},
+{
+    id: "RSH006",
+    name: "Kesa Pat Cotton Mekhela Chador 06",
+    originalPrice: "₹499",
+    offerPrice: "₹299",
+    shipping: "₹100",
+     rating: "⭐⭐⭐⭐⭐ (4.5)",
+    category: "Cotton",
+    image: "products/RSH006.jpeg"
+},
+{
+    id: "RSH007",
+    name: "Kesa Pat Cotton Mekhela Chador 07",
+    originalPrice: "₹499",
+    offerPrice: "₹299",
+    shipping: "₹100",
+     rating: "⭐⭐⭐⭐⭐ (4.7)",
+    category: "Cotton",
+    image: "products/RSH007.jpeg"
+},
+{
+    id: "RSH008",
+    name: "Kesa Pat Cotton Mekhela Chador 08",
     originalPrice: "₹499",
     offerPrice: "₹299",
     shipping: "₹100",
      rating: "⭐⭐⭐⭐⭐ (4.9)",
     category: "Cotton",
-    image: "products/p4.jpeg"
+    image: "products/RSH008.jpeg"
 },
 {
-    id: "p5",
-    name: "Kesa Pat Cotton Mekhela Chador",
+    id: "RSH009",
+    name: "Kesa Pat Cotton Mekhela Chador 09",
     originalPrice: "₹499",
     offerPrice: "₹299",
     shipping: "₹100",
-     rating: "⭐⭐⭐⭐⭐ (4.9)",
+     rating: "⭐⭐⭐⭐⭐ (4.2)",
     category: "Cotton",
-    image: "products/p5.jpeg"
+    image: "products/RSH009.jpeg"
 },
 {
-    id: "p6",
-    name: "Kesa Pat Cotton Mekhela Chador",
+    id: "RSH010",
+    name: "Kesa Pat Cotton Mekhela Chador 10",
     originalPrice: "₹499",
     offerPrice: "₹299",
     shipping: "₹100",
-     rating: "⭐⭐⭐⭐⭐ (4.9)",
+     rating: "⭐⭐⭐⭐⭐ (4.1)",                                    
     category: "Cotton",
-    image: "products/p6.jpeg"
+    image: "products/RSH010.jpeg"
 },
 {
-    id: "p7",
-    name: "Kesa Pat Cotton Mekhela Chador",
+    id: "RSH011",
+    name: "Kesa Pat Cotton Mekhela Chador 11",
     originalPrice: "₹499",
     offerPrice: "₹299",
     shipping: "₹100",
-     rating: "⭐⭐⭐⭐⭐ (4.9)",
+     rating: "⭐⭐⭐⭐⭐ (4.6)",
     category: "Cotton",
-    image: "products/p7.jpeg"
+    image: "products/RSH011.jpeg"
 },
 {
-    id: "p8",
-    name: "Kesa Pat Cotton Mekhela Chador",
+    id: "RSH012",
+    name: "Kesa Pat Cotton Mekhela Chador 12",
     originalPrice: "₹499",
     offerPrice: "₹299",
     shipping: "₹100",
-     rating: "⭐⭐⭐⭐⭐ (4.9)",
+     rating: "⭐⭐⭐⭐⭐ (4.7)",
     category: "Cotton",
-    image: "products/p8.jpeg"
+    image: "products/RSH012.jpeg"
 },
 {
-    id: "p9",
-    name: "Kesa Pat Cotton Mekhela Chador",
+    id: "RSH013",
+    name: "Kesa Pat Cotton Mekhela Chador 13",
     originalPrice: "₹499",
     offerPrice: "₹299",
     shipping: "₹100",
-     rating: "⭐⭐⭐⭐⭐ (4.9)",
+     rating: "⭐⭐⭐⭐⭐ (4.5)",
     category: "Cotton",
-    image: "products/p9.jpeg"
+    image: "products/RSH013.jpeg"
 },
 {
-    id: "p10",
-    name: "Kesa Pat Cotton Mekhela Chador",
+    id: "RSH014",
+    name: "Kesa Pat Cotton Mekhela Chador 14",
     originalPrice: "₹499",
     offerPrice: "₹299",
     shipping: "₹100",
-     rating: "⭐⭐⭐⭐⭐ (4.9)",                                    
+     rating: "⭐⭐⭐⭐⭐ (4.1)",
     category: "Cotton",
-    image: "products/p10.jpeg"
+    image: "products/RSH014.jpeg"
 },
 {
-    id: "p11",
-    name: "Kesa Pat Cotton Mekhela Chador",
+    id: "RSH015",
+    name: "Kesa Pat Cotton Mekhela Chador 15",
     originalPrice: "₹499",
     offerPrice: "₹299",
     shipping: "₹100",
-     rating: "⭐⭐⭐⭐⭐ (4.9)",
+     rating: "⭐⭐⭐⭐⭐ (4.4)",
     category: "Cotton",
-    image: "products/p11.jpeg"
-},
-{
-    id: "p12",
-    name: "Kesa Pat Cotton Mekhela Chador",
-    originalPrice: "₹499",
-    offerPrice: "₹299",
-    shipping: "₹100",
-     rating: "⭐⭐⭐⭐⭐ (4.9)",
-    category: "Cotton",
-    image: "products/p12.jpeg"
-},
-{
-    id: "p13",
-    name: "Kesa Pat Cotton Mekhela Chador",
-    originalPrice: "₹499",
-    offerPrice: "₹299",
-    shipping: "₹100",
-     rating: "⭐⭐⭐⭐⭐ (4.9)",
-    category: "Cotton",
-    image: "products/p13.jpeg"
-},
-{
-    id: "p14",
-    name: "Kesa Pat Cotton Mekhela Chador",
-    originalPrice: "₹499",
-    offerPrice: "₹299",
-    shipping: "₹100",
-     rating: "⭐⭐⭐⭐⭐ (4.9)",
-    category: "Cotton",
-    image: "products/p14.jpeg"
-},
-{
-    id: "p15",
-    name: "Kesa Pat Cotton Mekhela Chador",
-    originalPrice: "₹499",
-    offerPrice: "₹299",
-    shipping: "₹100",
-     rating: "⭐⭐⭐⭐⭐ (4.9)",
-    category: "Cotton",
-    image: "products/p15.jpeg"
+    image: "products/RSH015.jpeg"
 }
 ];
 
@@ -185,26 +185,22 @@ function displayProducts(productsToShow) {
                 </p>
 
                 <p class="shipping"> | Shipping Charge: ${product.shipping}</p>
+                <p class="cod"> | No Cash on Delivery</p>
+
 
                 <p class="rating">${product.rating}</p>
 
-                <a href="https://wa.me/918822016942?text=${encodeURIComponent(
-`Hello Royal Silk House,
+                <div class="quantity-box">
+    <button class="qty-minus">-</button>
 
-I want to order:
+    <input type="number" class="qty-input" value="1" min="1">
 
-${product.name}
+    <button class="qty-plus">+</button>
+</div>
 
-Product Link:
-https://royalsilkhouse.in/shop.html?product=${product.id}
-
-Please share payment details.`
-)}"
-                class="whatsapp-btn">
-
-                Order on WhatsApp
-
-                </a>
+<button class="whatsapp-btn">
+    Order on WhatsApp
+</button>
 
             </div>
 
@@ -298,23 +294,20 @@ if (specialProductsContainer) {
             </p>
 
             <p class="shipping"> | Shipping Charge: ${product.shipping}</p>
+            <p class="cod"> | No Cash on Delivery</p>
             <p class="rating">${product.rating}</p>
+            <div class="quantity-box">
+    <button class="qty-minus">-</button>
 
-            <a href="https://wa.me/918822016942?text=${encodeURIComponent(
-            `Hello Royal Silk House,
+    <input type="number" class="qty-input" value="1" min="1">
 
-            I want to order:
+    <button class="qty-plus">+</button>
+</div>
 
-            ${product.name}
-
-            Product Link:
-            https://royalsilkhouse.in/shop.html?product=${product.id}
-
-            Please share payment details.`
-            )}" class="whatsapp-btn">
-                Order on WhatsApp
-            </a>
-
+<button class="whatsapp-btn">
+    Order on WhatsApp
+</button>
+            
         </div>
         `;
 
@@ -346,7 +339,11 @@ const popupWhatsapp = document.getElementById("popup-whatsapp");
 
 document.addEventListener("click",function(e){
 
-const card=e.target.closest(".product-card");
+const image = e.target.closest(".product-image");
+
+if(!image) return;
+
+const card = image.closest(".product-card");
 
 if(card){
 
@@ -404,3 +401,69 @@ popup.style.display="none";
 }
 
 }
+
+document.addEventListener("click", function(e){
+
+    if(e.target.classList.contains("qty-plus")){
+
+        const input = e.target.parentElement.querySelector(".qty-input");
+        input.value = Number(input.value) + 1;
+
+    }
+
+    if(e.target.classList.contains("qty-minus")){
+
+        const input = e.target.parentElement.querySelector(".qty-input");
+
+        if(Number(input.value) > 1){
+
+            input.value = Number(input.value) - 1;
+
+        }
+
+    }
+
+});
+
+document.addEventListener("click", function(e){
+
+    if(!e.target.classList.contains("whatsapp-btn")) return;
+
+    e.preventDefault();
+
+    const card = e.target.closest(".product-card");
+
+    const name = card.querySelector("h3").innerText;
+
+    const code = products.find(p => p.name === name)?.id || "N/A";
+
+    const price = card.querySelector(".price").innerText;
+
+    const shipping = card.querySelector(".shipping").innerText;
+
+    const qtyInput = card.querySelector(".qty-input");
+
+    const quantity = qtyInput ? qtyInput.value : 1;
+
+    const message = `Hello Royal Silk House,
+
+I want to order this product.
+
+Product Code : ${code}
+
+Product Name : ${name}
+
+Quantity : ${quantity}
+
+${price}
+
+${shipping}
+
+Please confirm my order.`;
+
+    window.open(
+        `https://wa.me/918822016942?text=${encodeURIComponent(message)}`,
+        "_blank"
+    );
+
+});S
