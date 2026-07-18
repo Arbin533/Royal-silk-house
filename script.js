@@ -275,29 +275,7 @@ function changeBanner(category){
     }
 
     else if(category === "Ghesa Mekhela"){
-        bannerImage.src = "products/ghesa-mekhela-banner.jpeg";
-    }
-
-    else if(category === "Ari Cotton"){
-        bannerImage.src = "products/ari-banner.jpeg";
-    }
-
-    else{
-        bannerImage.src = "banner.png";
-    }
-
-}
-
-function changeBanner(category){
-
-    if(!bannerImage) return;
-
-    if(category === "Cotton Printed"){
-        bannerImage.src = "products/cotton-printed-banner.jpeg";
-    }
-
-    else if(category === "Ghesa Mekhela"){
-        bannerImage.src = "products/ghesa-mekhela-banner.jpeg";
+        bannerImage.src = "products/RSH005-2.jpeg";
     }
 
     else if(category === "Ari Cotton"){
