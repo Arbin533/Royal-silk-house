@@ -1,3 +1,4 @@
+
 const products = [
 {
     id: "RSH001",
@@ -38,11 +39,152 @@ const products = [
     rating: "⭐⭐⭐⭐☆ (4.3)",
     category: "Cotton Printed",
     image: "products/RSH004.jpeg"
+},
+{
+    id: "RSH005",
+    name: "Ghesa Mekhela (3 Pieces Set)",
+    originalPrice: "₹450",
+    offerPrice: "₹200",
+    shipping: "₹100",
+    rating: "⭐⭐⭐⭐⭐ (4.8)",
+    category: "Ghesa Mekhela",
+    image: "products/RSH005.jpeg"
+},
+{
+    id: "RSH006",
+    name: "Ari Cotton Mekhela Chador",
+    originalPrice: "₹700",
+    offerPrice: "₹400",
+    shipping: "₹100",
+    rating: "⭐⭐⭐⭐⭐ (4.9)",
+    category: "Ari Cotton",
+    image: "products/RSH006.jpeg"
+},
+{
+    id: "RSH007",
+    name: "Ari Cotton Mekhela Chador",
+    originalPrice: "₹700",
+    offerPrice: "₹400",
+    shipping: "₹100",
+    rating: "⭐⭐⭐⭐☆ (4.7)",
+    category: "Ari Cotton",
+    image: "products/RSH007.jpeg"
+},
+{
+    id: "RSH008",
+    name: "Ari Cotton Mekhela Chador",
+    originalPrice: "₹700",
+    offerPrice: "₹400",
+    shipping: "₹100",
+    rating: "⭐⭐⭐⭐ (4.2)",
+    category: "Ari Cotton",
+    image: "products/RSH008.jpeg"
+},
+{
+    id: "RSH009",
+    name: "Ari Cotton Mekhela Chador",
+    originalPrice: "₹700",
+    offerPrice: "₹400",
+    shipping: "₹100",
+    rating: "⭐⭐⭐⭐⭐ (4.8)",
+    category: "Ari Cotton",
+    image: "products/RSH009.jpeg"
+},
+{
+    id: "RSH010",
+    name: "Ari Cotton Mekhela Chador",
+    originalPrice: "₹700",
+    offerPrice: "₹400",
+    shipping: "₹100",
+    rating: "⭐⭐⭐⭐☆ (4.6)",
+    category: "Ari Cotton",
+    image: "products/RSH010.jpeg"
+},
+{
+    id: "RSH011",
+    name: "Ari Cotton Mekhela Chador",
+    originalPrice: "₹700",
+    offerPrice: "₹400",
+    shipping: "₹100",
+    rating: "⭐⭐⭐⭐⭐ (4.9)",
+    category: "Ari Cotton",
+    image: "products/RSH011.jpeg"
+},
+{
+    id: "RSH012",
+    name: "Ari Cotton Mekhela Chador",
+    originalPrice: "₹700",
+    offerPrice: "₹400",
+    shipping: "₹100",
+    rating: "⭐⭐⭐⭐ (4.1)",
+    category: "Ari Cotton",
+    image: "products/RSH012.jpeg"
+},
+{
+    id: "RSH013",
+    name: "Ari Cotton Mekhela Chador",
+    originalPrice: "₹700",
+    offerPrice: "₹400",
+    shipping: "₹100",
+    rating: "⭐⭐⭐⭐☆ (4.5)",
+    category: "Ari Cotton",
+    image: "products/RSH013.jpeg"
+},
+{
+    id: "RSH014",
+    name: "Ari Cotton Mekhela Chador",
+    originalPrice: "₹700",
+    offerPrice: "₹400",
+    shipping: "₹100",
+    rating: "⭐⭐⭐⭐⭐ (4.8)",
+    category: "Ari Cotton",
+    image: "products/RSH014.jpeg"
+},
+{
+    id: "RSH015",
+    name: "Ari Cotton Mekhela Chador",
+    originalPrice: "₹700",
+    offerPrice: "₹400",
+    shipping: "₹100",
+    rating: "⭐⭐⭐⭐ (4.3)",
+    category: "Ari Cotton",
+    image: "products/RSH015.jpeg"
+},
+{
+    id: "RSH016",
+    name: "Ari Cotton Mekhela Chador",
+    originalPrice: "₹700",
+    offerPrice: "₹400",
+    shipping: "₹100",
+    rating: "⭐⭐⭐⭐⭐ (4.9)",
+    category: "Ari Cotton",
+    image: "products/RSH016.jpeg"
+},
+{
+    id: "RSH017",
+    name: "Ari Cotton Mekhela Chador",
+    originalPrice: "₹700",
+    offerPrice: "₹400",
+    shipping: "₹100",
+    rating: "⭐⭐⭐⭐☆ (4.4)",
+    category: "Ari Cotton",
+    image: "products/RSH017.jpeg"
+},
+{
+    id: "RSH018",
+    name: "Ari Cotton Mekhela Chador",
+    originalPrice: "₹700",
+    offerPrice: "₹400",
+    shipping: "₹100",
+    rating: "⭐⭐⭐⭐⭐ (4.8)",
+    category: "Ari Cotton",
+    image: "products/RSH018.jpeg"
 }
 ];
 
 const productsContainer = document.getElementById("products-container");
 const searchInput = document.getElementById("search-input");
+const bannerImage = document.getElementById("category-banner-image");
 
 function displayProducts(productsToShow) {
 
@@ -123,6 +265,15 @@ if (searchInput) {
 
 }
 
+function changeBanner(category){
+
+    if(!bannerImage) return;
+
+    // Abhi sirf Cotton Printed ka banner hai
+    bannerImage.src = "products/cotton-printed-banner.jpeg";
+
+}
+
 const categoryButtons = document.querySelectorAll(".category-card");
 
 categoryButtons.forEach(button => {
@@ -134,6 +285,7 @@ const selectedCategory = this.dataset.category;
 if(selectedCategory === "All"){
 
 displayProducts(products);
+changeBanner("All");
 
 }
 
@@ -146,6 +298,8 @@ return product.category === selectedCategory;
 });
 
 displayProducts(filteredProducts);
+
+changeBanner(selectedCategory);
 
 }
 
