@@ -48,7 +48,8 @@ const products = [
     shipping: "₹100",
     rating: "⭐⭐⭐⭐⭐ (4.8)",
     category: "Ghesa Mekhela",
-    image: "products/RSH005.jpeg"
+    image: "products/RSH005.jpeg",
+    extraImage: "products/RSH005-2.jpeg"
 },
 {
     id: "RSH006",
@@ -193,7 +194,7 @@ function displayProducts(productsToShow) {
     productsToShow.forEach(product => {
 
         productsContainer.innerHTML += `
-        <div class="product-card">
+        <div class="product-card" data-product-id="${product.id}">
 
           <div class="product-image">
 
@@ -269,9 +270,49 @@ function changeBanner(category){
 
     if(!bannerImage) return;
 
-    // Abhi sirf Cotton Printed ka banner hai
-    bannerImage.src = "products/cotton-printed-banner.jpeg";
+    if(category === "Cotton Printed"){
+        bannerImage.src = "products/cotton-printed-banner.jpeg";
+    }
 
+    else if(category === "Ghesa Mekhela"){
+        bannerImage.src = "products/ghesa-mekhela-banner.jpeg";
+    }
+
+    else if(category === "Ari Cotton"){
+        bannerImage.src = "products/ari-banner.jpeg";
+    }
+
+    else{
+        bannerImage.src = "banner.png";
+    }
+
+}
+
+function changeBanner(category){
+
+    if(!bannerImage) return;
+
+    if(category === "Cotton Printed"){
+        bannerImage.src = "products/cotton-printed-banner.jpeg";
+    }
+
+    else if(category === "Ghesa Mekhela"){
+        bannerImage.src = "products/ghesa-mekhela-banner.jpeg";
+    }
+
+    else if(category === "Ari Cotton"){
+        bannerImage.src = "products/ari-banner.jpeg";
+    }
+
+    else{
+        bannerImage.src = "banner.png";
+    }
+
+} // ← YAHAN FUNCTION KHATAM
+
+// Iske niche add karo 👇
+if (bannerImage) {
+    bannerImage.src = "banner.png";
 }
 
 const categoryButtons = document.querySelectorAll(".category-card");
@@ -316,7 +357,7 @@ if (specialProductsContainer) {
     specialProducts.forEach(product => {
 
         specialProductsContainer.innerHTML += `
-        <div class="product-card">
+        <div class="product-card" data-product-id="${product.id}">
 
             <div class="product-image">
 
@@ -376,6 +417,7 @@ if(menuBtn && mobileMenu){
 const popup = document.getElementById("popup");
 
 const popupImage = document.getElementById("popup-image");
+const popupExtraImage = document.getElementById("popup-extra-image");
 const popupName = document.getElementById("popup-name");
 const popupOriginal = document.getElementById("popup-original");
 const popupOffer = document.getElementById("popup-offer");
@@ -391,6 +433,9 @@ if(!image) return;
 const card = image.closest(".product-card");
 
 if(card){
+
+const productId = card.dataset.productId;
+const product = products.find(p => p.id === productId);
 
 const image=card.querySelector("img").src;
 
@@ -414,18 +459,24 @@ popupOffer.innerText=offer;
 
 popupShipping.innerText=shipping;
 
-popupWhatsapp.href=`https://wa.me/918822016942?text=${encodeURIComponent(
+if (product) {
+
+    popupWhatsapp.href = `https://wa.me/918822016942?text=${encodeURIComponent(
 `Hello Royal Silk House,
 
 I want to order:
 
-${name}
+Product Code: ${product.id}
+
+Product Name: ${product.name}
 
 Product Link:
 https://royalsilkhouse.in/shop.html?product=${product.id}
 
 Please share payment details.`
-)}`;
+    )}`;
+
+}
 
 }
 
@@ -480,7 +531,11 @@ document.addEventListener("click", function(e){
 
     const name = card.querySelector("h3").innerText;
 
-    const code = products.find(p => p.name === name)?.id || "N/A";
+    const productId = card.dataset.productId;
+
+    const product = products.find(p => p.id === productId);
+
+    const code = product ? product.id : "N/A";
 
     const price = card.querySelector(".price").innerText;
 
@@ -504,6 +559,8 @@ ${price}
 
 ${shipping}
 
+Product Link : https://royalsilkhouse.in/shop.html?product=${code}
+
 Please confirm my order.`;
 
     window.open(
@@ -511,4 +568,73 @@ Please confirm my order.`;
         "_blank"
     );
 
-});S
+});
+
+// ===============================
+// OPEN PRODUCT FROM URL
+// ===============================
+
+const urlParams = new URLSearchParams(window.location.search);
+const productIdFromUrl = urlParams.get("product");
+
+if (productIdFromUrl) {
+
+    const productFromUrl = products.find(
+        p => p.id === productIdFromUrl
+    );
+
+    if (productFromUrl) {
+
+        setTimeout(() => {
+
+            popup.style.display = "flex";
+
+            popupImage.src = productFromUrl.image;
+
+            popupName.innerText = productFromUrl.name;
+
+            popupOriginal.innerText =
+                "Original Price: " + productFromUrl.originalPrice;
+
+            popupOffer.innerText =
+                "Offer Price: " + productFromUrl.offerPrice;
+
+            popupShipping.innerText =
+                "Shipping Charge: " + productFromUrl.shipping;
+
+            if (productFromUrl.extraImage) {
+
+                popupExtraImage.src =
+                    productFromUrl.extraImage;
+
+                popupExtraImage.style.display =
+                    "block";
+
+            } else {
+
+                popupExtraImage.style.display =
+                    "none";
+
+            }
+
+            popupWhatsapp.href =
+                `https://wa.me/918822016942?text=${encodeURIComponent(
+`Hello Royal Silk House,
+
+I want to order:
+
+Product Code: ${productFromUrl.id}
+
+Product Name: ${productFromUrl.name}
+
+Product Link:
+https://royalsilkhouse.in/shop.html?product=${productFromUrl.id}
+
+Please share payment details.`
+                )}`;
+
+        }, 500);
+
+    }
+
+}
