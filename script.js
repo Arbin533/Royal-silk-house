@@ -171,16 +171,6 @@ const products = [
     category: "Ari Cotton",
     image: "products/RSH017.jpeg"
 },
-{
-    id: "RSH018",
-    name: "Ari Cotton Mekhela Chador",
-    originalPrice: "₹700",
-    offerPrice: "₹400",
-    shipping: "₹100",
-    rating: "⭐⭐⭐⭐⭐ (4.8)",
-    category: "Ari Cotton",
-    image: "products/RSH018.jpeg"
-}
 ];
 
 const productsContainer = document.getElementById("products-container");
@@ -201,8 +191,12 @@ function displayProducts(productsToShow) {
             <img src="${product.image}" alt="${product.name}">
 
             <span class="offer-badge">
-            25% OFF
-            </span>
+    ${Math.round(
+        ((parseInt(product.originalPrice.replace("₹", "")) -
+        parseInt(product.offerPrice.replace("₹", ""))) /
+        parseInt(product.originalPrice.replace("₹", ""))) * 100
+    )}% OFF
+</span>
 
         </div>
 
@@ -342,8 +336,12 @@ if (specialProductsContainer) {
         <img src="${product.image}" alt="${product.name}">
 
         <span class="offer-badge">
-        25% OFF
-        </span>
+    ${Math.round(
+        ((parseInt(product.originalPrice.replace("₹", "")) -
+        parseInt(product.offerPrice.replace("₹", ""))) /
+        parseInt(product.originalPrice.replace("₹", ""))) * 100
+    )}% OFF
+</span>
 
 </div>
 
