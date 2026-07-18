@@ -1,4 +1,45 @@
-
+const products = [
+{
+    id: "RSH001",
+    name: "Cotton Printed Mekhela Chador",
+    originalPrice: "₹200",
+    offerPrice: "₹140",
+    shipping: "₹100",
+    rating: "⭐⭐⭐⭐⭐ (4.8)",
+    category: "Cotton Printed",
+    image: "products/RSH001.jpeg"
+},
+{
+    id: "RSH002",
+    name: "Cotton Printed Mekhela Chador",
+    originalPrice: "₹200",
+    offerPrice: "₹140",
+    shipping: "₹100",
+    rating: "⭐⭐⭐⭐☆ (4.5)",
+    category: "Cotton Printed",
+    image: "products/RSH002.jpeg"
+},
+{
+    id: "RSH003",
+    name: "Cotton Printed Mekhela Chador",
+    originalPrice: "₹200",
+    offerPrice: "₹140",
+    shipping: "₹100",
+    rating: "⭐⭐⭐⭐ (4.0)",
+    category: "Cotton Printed",
+    image: "products/RSH003.jpeg"
+},
+{
+    id: "RSH004",
+    name: "Cotton Printed Mekhela Chador",
+    originalPrice: "₹200",
+    offerPrice: "₹140",
+    shipping: "₹100",
+    rating: "⭐⭐⭐⭐☆ (4.3)",
+    category: "Cotton Printed",
+    image: "products/RSH004.jpeg"
+}
+];
 
 const productsContainer = document.getElementById("products-container");
 const searchInput = document.getElementById("search-input");
