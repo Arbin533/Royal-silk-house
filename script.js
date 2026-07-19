@@ -320,7 +320,12 @@ changeBanner(selectedCategory);
 
 });
 
-const specialProductsContainer = document.getElementById("special-products");
+// ===============================
+// HOMEPAGE SPECIAL OFFERS
+// ===============================
+
+const specialProductsContainer =
+    document.getElementById("special-products");
 
 if (specialProductsContainer) {
 
@@ -328,168 +333,121 @@ if (specialProductsContainer) {
 
     specialProducts.forEach(product => {
 
+        const discount = Math.round(
+            (
+                (
+                    parseInt(product.originalPrice.replace("₹", "")) -
+                    parseInt(product.offerPrice.replace("₹", ""))
+                ) /
+                parseInt(product.originalPrice.replace("₹", ""))
+            ) * 100
+        );
+
         specialProductsContainer.innerHTML += `
-        <div class="product-card" data-product-id="${product.id}">
+
+        <div class="product-card"
+             data-product-id="${product.id}">
 
             <div class="product-image">
 
-        <img src="${product.image}" alt="${product.name}">
+                <img
+                    src="${product.image}"
+                    alt="${product.name}"
+                >
 
-        <span class="offer-badge">
-    ${Math.round(
-        ((parseInt(product.originalPrice.replace("₹", "")) -
-        parseInt(product.offerPrice.replace("₹", ""))) /
-        parseInt(product.originalPrice.replace("₹", ""))) * 100
-    )}% OFF
-</span>
+                <span class="offer-badge">
+                    ${discount}% OFF
+                </span>
 
-</div>
+            </div>
 
             <h3>${product.name}</h3>
 
             <p class="old-price">
-                Original Price: <span>${product.originalPrice}</span>
+                Original Price:
+                <span>${product.originalPrice}</span>
             </p>
 
             <p class="price">
                 Offer Price: ${product.offerPrice}
             </p>
 
-            <p class="shipping"> | Shipping Charge: ${product.shipping}</p>
-            <p class="cod"> | No Cash on Delivery</p>
-            <p class="rating">${product.rating}</p>
+            <p class="shipping">
+                Shipping Charge: ${product.shipping}
+            </p>
+
+            <p class="cod">
+                No Cash on Delivery
+            </p>
+
+            <p class="rating">
+                ${product.rating}
+            </p>
+
             <div class="quantity-box">
-    <button class="qty-minus">-</button>
 
-    <input type="number" class="qty-input" value="1" min="1">
+                <button class="qty-minus">
+                    -
+                </button>
 
-    <button class="qty-plus">+</button>
-</div>
+                <input
+                    type="number"
+                    class="qty-input"
+                    value="1"
+                    min="1"
+                >
 
-<button class="whatsapp-btn">
-    Order on WhatsApp
-</button>
-            
+                <button class="qty-plus">
+                    +
+                </button>
+
+            </div>
+
+            <button class="whatsapp-btn">
+                Order on WhatsApp
+            </button>
+
         </div>
+
         `;
 
     });
 
 }
 
-const menuBtn = document.querySelector(".menu-btn");
-const mobileMenu = document.getElementById("mobile-menu");
 
-if(menuBtn && mobileMenu){
+// ===============================
+// QUANTITY BUTTONS
+// ===============================
 
-    menuBtn.addEventListener("click", function(){
+document.addEventListener("click", function(e) {
 
-        mobileMenu.classList.toggle("show");
+    if (e.target.classList.contains("qty-plus")) {
 
-    });
+        const card =
+            e.target.closest(".product-card");
 
-}
+        const input =
+            card.querySelector(".qty-input");
 
-const popup = document.getElementById("popup");
-
-const popupImage = document.getElementById("popup-image");
-const popupExtraImage = document.getElementById("popup-extra-image");
-const popupName = document.getElementById("popup-name");
-const popupOriginal = document.getElementById("popup-original");
-const popupOffer = document.getElementById("popup-offer");
-const popupShipping = document.getElementById("popup-shipping");
-const popupWhatsapp = document.getElementById("popup-whatsapp");
-
-document.addEventListener("click",function(e){
-
-const image = e.target.closest(".product-image");
-
-if(!image) return;
-
-const card = image.closest(".product-card");
-
-if(card){
-
-const productId = card.dataset.productId;
-const product = products.find(p => p.id === productId);
-
-const image=card.querySelector("img").src;
-
-const name=card.querySelector("h3").innerText;
-
-const original=card.querySelector(".old-price").innerText;
-
-const offer=card.querySelector(".price").innerText;
-
-const shipping=card.querySelector(".shipping").innerText;
-
-popup.style.display="flex";
-
-popupImage.src=image;
-
-popupName.innerText=name;
-
-popupOriginal.innerText=original;
-
-popupOffer.innerText=offer;
-
-popupShipping.innerText=shipping;
-
-if (product) {
-
-    popupWhatsapp.href = `https://wa.me/918822016942?text=${encodeURIComponent(
-`Hello Royal Silk House,
-
-I want to order:
-
-Product Code: ${product.id}
-
-Product Name: ${product.name}
-
-Product Link:
-https://royalsilkhouse.in/shop.html?product=${product.id}
-
-Please share payment details.`
-    )}`;
-
-}
-
-}
-
-});
-
-document.querySelector(".close-popup").onclick=function(){
-
-popup.style.display="none";
-
-}
-
-window.onclick=function(e){
-
-if(e.target===popup){
-
-popup.style.display="none";
-
-}
-
-}
-
-document.addEventListener("click", function(e){
-
-    if(e.target.classList.contains("qty-plus")){
-
-        const input = e.target.parentElement.querySelector(".qty-input");
-        input.value = Number(input.value) + 1;
+        input.value =
+            Number(input.value) + 1;
 
     }
 
-    if(e.target.classList.contains("qty-minus")){
 
-        const input = e.target.parentElement.querySelector(".qty-input");
+    if (e.target.classList.contains("qty-minus")) {
 
-        if(Number(input.value) > 1){
+        const card =
+            e.target.closest(".product-card");
 
-            input.value = Number(input.value) - 1;
+        const input =
+            card.querySelector(".qty-input");
+
+        if (Number(input.value) > 1) {
+
+            input.value =
+                Number(input.value) - 1;
 
         }
 
@@ -497,45 +455,88 @@ document.addEventListener("click", function(e){
 
 });
 
-document.addEventListener("click", function(e){
 
-    if(!e.target.classList.contains("whatsapp-btn")) return;
+// ===============================
+// MOBILE MENU
+// ===============================
+
+const menuBtn =
+    document.querySelector(".menu-btn");
+
+const mobileMenu =
+    document.getElementById("mobile-menu");
+
+if (menuBtn && mobileMenu) {
+
+    menuBtn.addEventListener(
+        "click",
+        function() {
+
+            mobileMenu.classList.toggle("show");
+
+        }
+    );
+
+}
+
+
+// ===============================
+// WHATSAPP ORDER
+// ===============================
+
+document.addEventListener("click", function(e) {
+
+    if (!e.target.classList.contains("whatsapp-btn")) {
+        return;
+    }
 
     e.preventDefault();
 
-    const card = e.target.closest(".product-card");
+    const card =
+        e.target.closest(".product-card");
 
-    const name = card.querySelector("h3").innerText;
+    if (!card) {
+        return;
+    }
 
-    const productId = card.dataset.productId;
+    const productId =
+        card.dataset.productId;
 
-    const product = products.find(p => p.id === productId);
+    const product =
+        products.find(
+            p => p.id === productId
+        );
 
-    const code = product ? product.id : "N/A";
+    if (!product) {
+        alert("Product information not found.");
+        return;
+    }
 
-    const price = card.querySelector(".price").innerText;
+    const qtyInput =
+        card.querySelector(".qty-input");
 
-    const shipping = card.querySelector(".shipping").innerText;
+    const quantity =
+        qtyInput
+            ? Number(qtyInput.value) || 1
+            : 1;
 
-    const qtyInput = card.querySelector(".qty-input");
-
-    const quantity = qtyInput ? qtyInput.value : 1;
-
-    const message = `Hello Royal Silk House,
+    const message =
+`Hello Royal Silk House,
 
 I want to order this product.
 
-Product Code : ${code}
+Product Code : ${product.id}
 
-Product Name : ${name}
+Product Name : ${product.name}
 
 Quantity : ${quantity}
 
-${price}
+Offer Price : ${product.offerPrice}
 
-${shipping}
+Shipping Charge : ${product.shipping}
 
-Product Link : https://royalsilkhouse.in/shop.html?product=${code}
+Product Link :
+https://royalsilkhouse.in/shop.html?product=${product.id}
 
 Please confirm my order.`;
 
@@ -547,36 +548,216 @@ Please confirm my order.`;
 });
 
 // ===============================
+// PRODUCT POPUP
+// ===============================
+
+const popup = document.getElementById("popup");
+
+const popupImage = document.getElementById("popup-image");
+
+const popupExtraImage =
+    document.getElementById("popup-extra-image");
+
+const popupName =
+    document.getElementById("popup-name");
+
+const popupOriginal =
+    document.getElementById("popup-original");
+
+const popupOffer =
+    document.getElementById("popup-offer");
+
+const popupShipping =
+    document.getElementById("popup-shipping");
+
+const popupWhatsapp =
+    document.getElementById("popup-whatsapp");
+
+
+// ===============================
+// OPEN PRODUCT POPUP
+// ===============================
+
+document.addEventListener("click", function(e) {
+
+    const image =
+        e.target.closest(".product-image");
+
+    if (!image) return;
+
+    const card =
+        image.closest(".product-card");
+
+    if (!card) return;
+
+    const productId =
+        card.dataset.productId;
+
+    const product =
+        products.find(
+            p => p.id === productId
+        );
+
+    if (!product) return;
+
+
+    popup.style.display = "flex";
+
+
+    popupImage.src =
+        product.image;
+
+    popupName.innerText =
+        product.name;
+
+    popupOriginal.innerText =
+        "Original Price: " +
+        product.originalPrice;
+
+    popupOffer.innerText =
+        "Offer Price: " +
+        product.offerPrice;
+
+    popupShipping.innerText =
+        "Shipping Charge: " +
+        product.shipping;
+
+
+    // Extra Image
+
+    if (product.extraImage) {
+
+        popupExtraImage.src =
+            product.extraImage;
+
+        popupExtraImage.style.display =
+            "block";
+
+    } else {
+
+        popupExtraImage.style.display =
+            "none";
+
+    }
+
+
+    // Popup WhatsApp Button
+
+    popupWhatsapp.onclick =
+        function(e) {
+
+            e.preventDefault();
+
+            e.stopPropagation();
+
+            const message =
+`Hello Royal Silk House,
+
+I want to order this product.
+
+Product Code : ${product.id}
+
+Product Name : ${product.name}
+
+Offer Price : ${product.offerPrice}
+
+Shipping Charge : ${product.shipping}
+
+Product Link :
+https://royalsilkhouse.in/shop.html?product=${product.id}
+
+Please confirm my order.`;
+
+            window.open(
+                `https://wa.me/918822016942?text=${encodeURIComponent(message)}`,
+                "_blank"
+            );
+
+        };
+
+});
+
+
+// ===============================
+// CLOSE POPUP
+// ===============================
+
+const closePopup =
+    document.querySelector(".close-popup");
+
+if (closePopup) {
+
+    closePopup.onclick =
+        function() {
+
+            popup.style.display =
+                "none";
+
+        };
+
+}
+
+
+window.addEventListener(
+    "click",
+    function(e) {
+
+        if (e.target === popup) {
+
+            popup.style.display =
+                "none";
+
+        }
+
+    }
+);
+
+
+// ===============================
 // OPEN PRODUCT FROM URL
 // ===============================
 
-const urlParams = new URLSearchParams(window.location.search);
-const productIdFromUrl = urlParams.get("product");
+const urlParams =
+    new URLSearchParams(
+        window.location.search
+    );
+
+const productIdFromUrl =
+    urlParams.get("product");
+
 
 if (productIdFromUrl) {
 
-    const productFromUrl = products.find(
-        p => p.id === productIdFromUrl
-    );
+    const productFromUrl =
+        products.find(
+            p => p.id === productIdFromUrl
+        );
 
     if (productFromUrl) {
 
-        setTimeout(() => {
+        setTimeout(function() {
 
-            popup.style.display = "flex";
+            popup.style.display =
+                "flex";
 
-            popupImage.src = productFromUrl.image;
+            popupImage.src =
+                productFromUrl.image;
 
-            popupName.innerText = productFromUrl.name;
+            popupName.innerText =
+                productFromUrl.name;
 
             popupOriginal.innerText =
-                "Original Price: " + productFromUrl.originalPrice;
+                "Original Price: " +
+                productFromUrl.originalPrice;
 
             popupOffer.innerText =
-                "Offer Price: " + productFromUrl.offerPrice;
+                "Offer Price: " +
+                productFromUrl.offerPrice;
 
             popupShipping.innerText =
-                "Shipping Charge: " + productFromUrl.shipping;
+                "Shipping Charge: " +
+                productFromUrl.shipping;
+
 
             if (productFromUrl.extraImage) {
 
@@ -593,21 +774,36 @@ if (productIdFromUrl) {
 
             }
 
-            popupWhatsapp.href =
-                `https://wa.me/918822016942?text=${encodeURIComponent(
+
+            popupWhatsapp.onclick =
+                function(e) {
+
+                    e.preventDefault();
+
+                    const message =
 `Hello Royal Silk House,
 
-I want to order:
+I want to order this product.
 
-Product Code: ${productFromUrl.id}
+Product Code : ${productFromUrl.id}
 
-Product Name: ${productFromUrl.name}
+Product Name : ${productFromUrl.name}
 
-Product Link:
+Offer Price : ${productFromUrl.offerPrice}
+
+Shipping Charge : ${productFromUrl.shipping}
+
+Product Link :
 https://royalsilkhouse.in/shop.html?product=${productFromUrl.id}
 
-Please share payment details.`
-                )}`;
+Please confirm my order.`;
+
+                    window.open(
+                        `https://wa.me/918822016942?text=${encodeURIComponent(message)}`,
+                        "_blank"
+                    );
+
+                };
 
         }, 500);
 
